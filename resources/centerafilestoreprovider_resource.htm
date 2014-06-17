@@ -1,0 +1,249 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>
+CenteraFileStoreProvider staticResTable
+</title>
+</head>
+<body>
+
+<@table CenteraFileStoreProvider_FSExternalStores@>
+<table border=1><caption><strong>
+
+<tr>
+<td>StorageType</td><td>StorageDesc</td><td>Implementor</td><td>DynInclude</td>
+</tr>
+
+<tr>
+<td>CenteraStorage</td><td>wwFsCenteraStorageDesc</td><td>XAMCenteraStorage</td><td>fs_centera_options</td>
+</tr>
+</table>
+
+<@end@>
+
+
+<!--Defaults for creating a provider-->
+
+<@table CenteraFileStoreProvider_FSImplementorsDefaults@>
+<!-- Merge to FSImplementorsDefaults -->
+<table>
+<tr>
+	<td>name</td><td>location</td>
+</tr>
+<tr>
+	<td>XAMCenteraStorage</td><td>oracle.ateam.ecm.filestore.centera.CenteraStorage</td>
+</tr>
+</table>
+<@end@>
+
+
+<!-- for l1g only-->
+<@table CenteraFileStoreProvider_DataStoreDesignTableList@>
+<!-- Merge to DataStoreDesignTableList -->
+<table border=1><caption><strong>
+<tr>
+    <td>dsdTableName</td>
+    <td>dsdComponentName</td>
+    <td>dsdVersion</td>
+    <td>dsdCheckFlag</td>
+    <td>dsdIsCSTable</td>
+</tr>
+<tr>
+    <td>CenteraFileRef</td><td>CenteraFileStoreProvider</td><td>6.0</td><td></td><td>0</td>
+</tr>
+<tr>
+    <td>CenteraFileCache</td><td>CenteraFileStoreProvider</td><td>6.0</td><td></td><td>0</td>
+</tr>
+</table>
+<@end@>
+
+<@table CenteraFileStoreProvider.CenteraFileRef@>
+<table border=1><caption><strong>
+<tr><td>dsdColumnName</td><td>dsdFieldType</td><td>dsdFieldLength</td><td>dsdIsPrimary</td><td>dsdIsRequired</td><td>dsdDefaultValue</td></tr>
+<tr>
+    <td>dID</td>
+    <td>integer</td>
+    <td></td>
+    <td>1</td>
+    <td>1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dRenditionId</td>
+    <td>text</td>
+    <td>30</td>
+    <td>1</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>xamXUId</td>
+    <td>text</td>
+    <td>90</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>xamXSystem</td>
+    <td>text</td>
+    <td>50</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dLastModified</td>
+    <td>date</td>
+    <td></td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dFileSize</td>
+    <td>integer</td>
+    <td></td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dIsDeleted</td>
+    <td>text</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>bFileData</td>
+    <td>blob</td>
+    <td>50</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+</table>
+<@end@>
+
+<@table CenteraFileStoreProvider.CenteraFileCache@>
+<!-- Merge to None -->
+<table border=1><caption><strong>
+<tr><td>dsdColumnName</td><td>dsdFieldType</td><td>dsdFieldLength</td><td>dsdIsPrimary</td><td>dsdIsRequired</td><td>dsdDefaultValue</td></tr>
+<tr>
+    <td>dID</td>
+    <td>integer</td>
+    <td></td>
+    <td>1</td>
+    <td>1</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dRenditionId</td>
+    <td>text</td>
+    <td>30</td>
+    <td>1</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dFileSize</td>
+    <td>integer</td>
+    <td></td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dFilesystemKey</td>
+    <td>text</td>
+    <td>30</td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+<tr>
+    <td>dLastAccessed</td>
+    <td>date</td>
+    <td></td>
+    <td>0</td>
+    <td>0</td>
+    <td></td>
+</tr>
+</table>
+<@end@>
+
+<@table CenteraFileStoreProvider_dsdTableInfo@>
+<!-- Merge to dsdTableInfo -->
+<table border=1><caption><strong>
+<tr><td>tablename</td><td>pkclustertype</td><td>pksize</td><td>pkdeltas</td><td>tablesize</td><td>tabledeltas</td></tr>
+<tr><td>CenteraFileRef</td><td>CLUSTERED</td><td>H</td><td></td><td>L</td><td>pctfree=5,pctused=90</td></tr>
+<tr><td>CenteraFileCache</td><td>CLUSTERED</td><td>H</td><td></td><td>L</td><td>pctfree=5,pctused=90</td></tr>
+</table>
+<@end@>
+
+<!--columns-->
+<@table CenteraFileStoreProviderColumnTranslation@>
+<table border=1><caption><strong>Column Mapping</strong></caption>
+<tr>
+<td>column</td><td>alias</td>
+</tr>
+<tr>
+	<td>DRENDITIONID</td>
+	<td>dRenditionId</td>
+</tr>
+<tr>
+	<td>DFILESIZE</td>
+	<td>dFileSize</td>
+</tr>
+<tr>
+	<td>DFILESYSTEMKEY</td>
+	<td>dFilesystemKey</td>
+</tr>
+<tr>
+	<td>DLASTACCESSED</td>
+	<td>dLastAccessed</td>
+</tr>
+<tr>
+	<td>DLASTMODIFIED</td>
+	<td>dLastModified</td>
+</tr>
+<tr>
+	<td>BFILEDATA</td>
+	<td>bFileData</td>
+</tr>
+<tr>
+	<td>DISDELETED</td>
+	<td>dIsDeleted</td>
+</tr>
+<tr>
+	<td>XAMXUID</td>
+	<td>xamXUId</td>
+</tr>
+<tr>
+	<td>XAMXSYSTEM</td>
+	<td>xamXSystem</td>
+</tr>
+</table>
+<@end@>
+
+<@wwFsRule_Centera=Centera@>
+
+<@dynamichtml fs_centera_options@>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Centera]
+	<label for="RenditionsOnFileSystem"><span class="tableEntry"><$lc("wwFsJdbcRenditions")$></span></label>
+	<input type="text" name="RenditionsOnFileSystem" id="RenditionsOnFileSystem" value="<$#local.RenditionsOnFileSystem$>" size="30"/>
+	<label class="hidden" for="renditions"><$lc("wwOperatorForField", "renditions")$></label>
+	<select name="renditions" id="renditions" onchange="selectMethod(this, 'RenditionsOnFileSystem')">
+		<option value="">&nbsp;</option>
+		<option value="web"><$lc("wwFsWebRenditions")$></option>
+		<option value="vault"><$lc("wwFsVaultRenditions")$></option>
+	</select>
+<@end@>
+<@apCenteraFsXUId=Centera XUID@>
+<@apCenteraFsUsingCentera=Using Centera?@>
+
+
+
+</body></html>

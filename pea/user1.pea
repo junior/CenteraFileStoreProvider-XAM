@@ -1,0 +1,8 @@
+<pea version="1.0.0">
+<defaultkey name="86893ee1ab574a5d87c477365327766d:user1">
+<credential id="csp1.secret" enc="base64">YWh3cXB3alc2cXlMYWhRT0NOK0VoNklxVElBPQ==</credential>
+</defaultkey>
+<key type="cluster" name="86893ee1ab574a5d87c477365327766d:user1" id="5092aeeb">
+<credential id="csp1.secret" enc="base64">YWh3cXB3alc2cXlMYWhRT0NOK0VoNklxVElBPQ==</credential>
+</key>
+</pea>

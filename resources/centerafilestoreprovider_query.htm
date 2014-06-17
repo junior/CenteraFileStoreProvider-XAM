@@ -1,0 +1,131 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>
+CenteraFileStoreProvider query
+</title>
+</head>
+<body>
+
+<@table CenteraFileStoreProvider_Queries@>
+<table border=1><caption><strong>Query Definition Table</strong></caption>
+<tr>
+	<td>name</td>
+	<td>queryStr</td>
+	<td>parameters</td>
+</tr>
+<!-- CenteraFileCache queries 10g -->
+<tr>
+	<td>QgetCurrentCenteraFileCache</td>
+	<td>select dID as DID, dRenditionId as DRENDITIONID, Path as PATH, dLastAccessed as DLASTACCESSED from CenteraFileCache where DLASTACCESSED < ?</td>
+	<td>dLastAccessed datetime</td>
+</tr>
+<tr>
+	<td>UdocMetaWithXUId</td>
+	<td>UPDATE DocMeta SET xXUId=? 
+		WHERE dID=?</td>
+	<td>xXUId varchar
+		dID int</td>
+</tr>
+<tr>
+	<td>QcenteraXUIdFromDocMeta</td>
+	<td>SELECT xXUId FROM DocMeta WHERE dID=?</td>
+	<td>dID int</td>
+</tr>
+<!-- CenteraFileRef queries 11g -->
+<tr>
+	<td>DcenteraFileRef</td>
+	<td>DELETE FROM CenteraFileRef WHERE dID=? AND dRenditionId=?</td>
+	<td>dID int
+		dRenditionId varchar</td>
+</tr>
+<tr>
+	<td>(PREPARED)IcenteraFileRef</td>
+	<td>INSERT INTO CenteraFileRef (dID, dRenditionId, xamXUId, dFileSize, dLastModified)
+		VALUES (?, ?, ?, ?, ?)</td>
+	<td>dID int
+		dRenditionId varchar
+		xamXUId varchar
+		dFileSize int
+		dLastModified datetime</td>
+</tr>
+<tr>
+	<td>IcopyCenteraFileRef</td>
+	<td>INSERT INTO CenteraFileRef (dID, dRenditionId, dLastModified, xamXUId, dFileSize) 
+		SELECT ?, ?, ?, xamXUId, dFileSize FROM CenteraFileRef 
+		WHERE dID=? AND dRenditionId=?</td>
+	<td>dID int
+		dRenditionId varchar
+		dLastModified datetime
+		sourceId int
+		sourceRen varchar</td>
+</tr>
+<tr>
+	<td>QcenteraFileRef</td>
+	<td>SELECT * FROM CenteraFileRef WHERE dID=? AND dRenditionId=?</td>
+	<td>dID int
+		dRenditionId varchar</td>
+</tr>
+<tr>
+	<td>(PREPARED)UcenteraFileRef</td>
+	<td>UPDATE CenteraFileRef SET dFileSize=?, dLastModified=?, xamXUId=?
+		WHERE dID=? AND dRenditionId=?</td>
+	<td>dFileSize int
+		dLastModified datetime
+		xamXUId varchar
+		dID int
+		dRenditionId varchar</td>
+</tr>
+
+<!-- CenteraFileCache queries 11g -->
+<tr>
+	<td>DcenteraFileCache</td>
+	<td>DELETE FROM CenteraFileCache WHERE dID=? AND dRenditionId=?</td>
+	<td>dID int
+		dRenditionId varchar</td>
+</tr>
+<tr>
+	<td>IcenteraFileCache</td>
+	<td>INSERT INTO CenteraFileCache (dID, dRenditionId, dFileSize, dFilesystemKey, dLastAccessed)
+		VALUES (?, ?, ?, ?, ?)</td>
+	<td>dID int
+		dRenditionId varchar
+		dFileSize int
+		dFilesystemKey varchar
+		dLastAccessed datetime</td>
+</tr>
+<tr>
+	<td>QagedCenteraFileCache</td>
+	<td>SELECT * FROM CenteraFileCache WHERE dLastAccessed<?</td>
+	<td>dLastAccessed datetime</td>
+</tr>
+<tr>
+	<td>QcenteraFileCache</td>
+	<td>SELECT * FROM CenteraFileCache WHERE dID=? AND dRenditionId=?</td>
+	<td>dID int
+		dRenditionId varchar</td>
+</tr>
+<tr>
+    <td>QcenteraFileCacheAll</td>
+    <td>SELECT * FROM CenteraFileCache</td>
+    <td></td>
+</tr>
+<tr>
+	<td>QsumCenteraFileCache</td>
+	<td>SELECT SUM(dFileSize) AS FS_SIZESUM FROM CenteraFileCache WHERE dLastAccessed<?</td>
+	<td>dLastAccessed datetime</td>
+</tr>
+<tr>
+	<td>UcenteraFileCache</td>
+	<td>UPDATE CenteraFileCache SET dLastAccessed=? 
+		WHERE dID=? AND dRenditionId=? AND dFileSize=?</td>
+	<td>dLastAccessed datetime
+		dID int
+		dRenditionId varchar
+		dFileSize int</td>
+</tr>
+
+
+</table>
+<@end@>
+</body></html>
