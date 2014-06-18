@@ -1,5 +1,6 @@
 # Not releasing the source yet
 java/
+lib/
 
 # Automated Build Number
 buildnumber.txt
