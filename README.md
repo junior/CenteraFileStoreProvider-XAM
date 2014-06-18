@@ -4,9 +4,9 @@ CenteraFileStoreProvider Component
 |                      	|                                                          	|
 |----------------------	|----------------------------------------------------------	|
 | Date:                	| Aug, 2013                                                	|
-| Component Version:   	| 2013\_08\_21(build 9)                                      	|
+| Component Version:   	| 2013\_08\_21(build 9)                                 	|
 | Product and Version: 	| Oracle WebCenter Content Server 11g                      	|
-| Author:              	| Adao.Junior@oracle.com                                   	|
+| Author:              	| Adao.Junior                                              	|
 | Info:                	| [Oracle A-Team Chronicles](http://www.ateam-oracle.com/) 	|
 |                      	| [Content Rave Blog](http://blog.contentra.com)            |
 
