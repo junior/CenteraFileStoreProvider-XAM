@@ -1,29 +1,15 @@
 CenteraFileStoreProvider Component
 ==================================
 
-Date:
+|                      	|                                                          	|
+|----------------------	|----------------------------------------------------------	|
+| Date:                	| Aug, 2013                                                	|
+| Component Version:   	| 2013\_08\_21(build 9)                                      	|
+| Product and Version: 	| Oracle WebCenter Content Server 11g                      	|
+| Author:              	| Adao.Junior@oracle.com                                   	|
+| Info:                	| [Oracle A-Team Chronicles](http://www.ateam-oracle.com/) 	|
+|                      	| [Content Rave Blog](http://blog.contentra.com)            |
 
-Aug, 2013
-
-Component Version:
-
-2013\_08\_21(build 9)
-
-Product and Version:
-
-Oracle WebCenter Content Server 11g
-
-Author:
-
-Adao.Junior@oracle.com
-
-Info:
-
-[Oracle A-Team Chronicles](http://www.ateam-oracle.com/)
-
-[Content Rave Blog](http://blog.contentra.com)
-
-![](data:image/png,%89PNG%0D%0A%1A%0A%00%00%00%0DIHDR%00%00%00%A8%00%00%00%21%01%03%00%00%00w%3Ar%E7%00%00%00%01sRGB%00%AE%CE%1C%E9%00%00%00%04gAMA%00%00%B1%8F%0B%FCa%05%00%00%00%06PLTE%D5%D5%D5%FF%FF%FF%B7%B5%AB%C3%00%00%00%02tRNS%FF%00%E5%B70J%00%00%00%09pHYs%00%00%0E%C3%00%00%0E%C3%01%C7o%A8d%00%00%01%10IDAT%28%CF%85%D2%B1N%C40%0C%06%E0%3F%A4j%84%40%0A%23%C3%E9%0E%DE%00%89%85%E1%A4%BE%CA%3D%02O%40-%B10%DE%C8%E3%F8%26V%1E%21%7D%83%B0%DD%80%1A%EC%14%9A%96%2B%22K%E2O%1E%EC%D8HK%07%7Fhpr%05%C0%02H%D1%26%B8%28%0F%B6%13%0D%A2%B6%E8%CD%99%A5J%D4%24%CA%1A%B2%EE%ACeG%29%1A%89%A3%99%29g5%AA%945%D8gv%21%B1%EA%BB%AA%99%AA%94%81%FD%5C%F7%8B%2A%05%FC%28T%3F%82%7Dcw%A1%1Ap%A5%8AQ%BDh%3B%E8uN%97%FA%B8%F6%E9%E5%5B%FB%A2%95O%97%A7%8A%99%B6Sm%06%7D%18%B5%F2%FDJ%F5%CE%E0s%FB%8F%D6%BE_%17mhP%A7%BA%E9%B2%02%8D%B6%ACz.%81%E8%A3%C1q%A2%AF%8B%1A%B3%92%2AcSt%A7%2A%B3%88%7D%D1pl%E1%3B%FE%A5%3CjHE%29%8A%1E%0E%A2%FC%24%ED%27%1D%23%D5%08%0D%1Cu%C1%00%5B%E8J%91%7E%3Fh-%2Bt%CB%F2Z%9D%28a%9A%5B%0Dz%CFX%DE%D4%2F%A8%18g%FD%A7%7EpN%00%00%00%00IEND%AEB%60%82)
 
 Component Information
 ---------------------
