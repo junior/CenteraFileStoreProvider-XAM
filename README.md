@@ -67,23 +67,35 @@ FileStoreProvider documentation.
 Install the CenteraFileStoreProvider component. Preferable using
 Administration \> Component Management
 
-Add the environment variable XAM\_VIM\_PATH to point to
-//components/CenteraFileStoreProvider/lib/
+Add the environment variable XAM\_VIM\_PATH to point to /components/CenteraFileStoreProvider/lib/
 
-*\* sample if using windows: set
-XAM\_VIM\_PATH=c:\\oracle\\wcc\_domain\\ucm\\cs\\components\\CenteraFileStoreProvider\\lib\\windows-amd64\\*
+\* sample if using windows:
+```sh
+set XAM\_VIM\_PATH=c:\\oracle\\wcc\_domain\\ucm\\cs\\components\\CenteraFileStoreProvider\\lib\\windows-amd64\\*
+```
 
-*\* sample if using linux or solaris: export
-XAM\_VIM\_PATH=/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/linux64/*
+\* sample if using linux:
+```sh
+export XAM\_VIM\_PATH=/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/linux64/*
+```
+
+\* sample if using solaris:
+```sh
+export XAM\_VIM\_PATH=/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/solaris64/*
+```
 
 For Linux and Solaris: Add the environment variable LD\_LIBRARY\_PATH
-and PATH to point to //components/CenteraFileStoreProvider/lib/
+and PATH to point to /components/CenteraFileStoreProvider/lib/
 
-*\*\* path: export
-PATH=\$PATH:/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/linux64/*
+\*\* path:
+```sh
+export PATH=\$PATH:/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/linux64/*
+```
 
-*\*\* ld\_library\_path: export
-LD\_LIBRARY\_PATH=/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/linux64/*
+\*\* ld\_library\_path:
+```sh
+export LD\_LIBRARY\_PATH=/oracle/wcc\_domain/ucm/cs/components/CenteraFileStoreProvider/lib/linux64/*
+```
 
 You can include this environment variable in the Start Script of the
 WebCenter Content
@@ -92,8 +104,10 @@ Change the xri String to point to your .pea file and Centera Address,
 this could be done editing the centerafilestoreprovider\_environment.cfg
 file on installdir\\custom\\CenteraFileStoreProvider
 
-*\* sample connection string:
-CenteraXRI=snia-xam://centera\_vim!168.159.214.20?/apps/oracle/fmw/user\_projects/wcc/ucm/cs/custom/pea/c1armtesting.pea*
+\* sample connection string:
+```sh
+CenteraXRI=snia-xam://centera\_vim!168.159.214.20?/apps/oracle/fmw/user\_projects/wcc/ucm/cs/custom/CenteraFileStoreProvider/pea/c1armtesting.pea*
+```
 
 Enable the CenteraFileStoreProvider component
 
