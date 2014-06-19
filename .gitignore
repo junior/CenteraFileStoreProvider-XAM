@@ -1,6 +1,11 @@
 # Not releasing the source yet
 java/
+
+# 3rd Party SDK
 lib/
+
+# compiled Classes
+classes-*.jar
 
 # Automated Build Number
 buildnumber.txt
