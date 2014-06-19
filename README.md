@@ -67,7 +67,7 @@ FileStoreProvider documentation.
 Install the CenteraFileStoreProvider component. Preferable using
 Administration \> Component Management
 
-Add the environment variable `XAM_VIM_PATH` to point to `/components/CenteraFileStoreProvider/lib/`
+Add the environment variable `XAM_VIM_PATH` to point to `/<csdir>/components/CenteraFileStoreProvider/lib/<platform>/`
 
 \* sample if using windows:
 ```sh
@@ -85,7 +85,7 @@ export XAM_VIM_PATH=/oracle/wcc_domain/ucm/cs/components/CenteraFileStoreProvide
 ```
 
 For Linux and Solaris: Add the environment variable `LD_LIBRARY_PATH`
-and PATH to point to `/components/CenteraFileStoreProvider/lib/`
+and PATH to point to `/<csdir>/components/CenteraFileStoreProvider/lib/<platform>/`
 
 \*\* path:
 ```sh
