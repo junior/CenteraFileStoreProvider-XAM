@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<project name="CenteraFileStoreProvider Standalone Build" default="wrapup">
+
+	<target name="setup">
+<!--		
+		<mkdir dir="classes/" />
+-->
+		<loadfile property="cu-buildnumber" srcFile="buildnumber.txt"/>
+	</target>
+
+	<target name="compile" depends="setup">
+<!--
+		<javac debug="true" srcdir="java/CenteraFileStoreProvider/" destdir="classes/"  />
+-->
+		<echo>Centera FileStore Provider Compilation OK</echo>
+	</target>
+
+	<target name="classes_bundle" depends="compile">
+
+		<jar destfile="classes-CenteraFileStoreProvider.jar" 
+			filesonly="true"
+			basedir="/Dev/WCC/11gDev/11.1.1.x/sources/build"
+			includes="oracle/**">
+		    <include name="build"/>
+		    <manifest>
+		      <attribute name="Built-By" value="Adao.Junior@oracle.com"/>
+		      <!-- Information about the program itself -->
+		      <attribute name="Implementation-Vendor" value="Oracle A-Team."/>
+		      <attribute name="Implementation-Title" value="Centera FileStore Provider"/>
+		      <attribute name="Implementation-Version" value="1.0.${cu-buildnumber}"/>
+		    </manifest>
+		</jar>
+
+		<echo>Centera FileStore Provider Jarred OK</echo>
+	</target>
+
+	<target name="component_bundle" depends="classes_bundle">
+		<zip destfile="CenteraFileStoreProvider.zip" filesonly="true">
+			<zipfileset dir="." includes="manifest.hda" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="CenteraFileStoreProvider.hda" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="centerafilestoreprovider_environment.cfg" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="readme.html" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="resources/**" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="lang/**" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="pea/**" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="lib/**" />
+			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="classes-CenteraFileStoreProvider.jar" />
+		</zip>
+		<echo>Centera FileStore Provider Component Install Zipped OK</echo>
+	</target>
+
+	<!-- Changed to just rename and add the build number on the end-->
+	<target name="package-component-bundle" depends="component_bundle">
+		<move
+			file="CenteraFileStoreProvider.zip" 
+			tofile="builds/CenteraFileStoreProvider_b${cu-buildnumber}.zip"
+			/>
+
+	</target>
+	
+	<target name="cleanup" depends="package-component-bundle">
+<!--
+		<delete dir="classes/" />
+-->
+		<echo>Centera FileStore Providerv Build Cleanup Complete</echo>
+	</target>
+
+	<target name="wrapup" depends="cleanup">
+		<echo>Centera FileStore Provider Build Complete</echo>
+	</target>
+
+</project>
