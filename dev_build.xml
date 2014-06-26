@@ -5,55 +5,87 @@
 <!--		
 		<mkdir dir="classes/" />
 -->
-		<loadfile property="cu-buildnumber" srcFile="buildnumber.txt"/>
+		<loadfile property="build.number" srcFile="build.number"/>
+		<loadfile property="release.number" srcFile="release.number"/>
+		<loadfile property="component.status" srcFile="component.status"/>
+		<property name="component.name" value="ExternalDBFileStoreProvider"/>
+		<property name="component.desc" value="${ant.project.name}"/>
+		<property name="component.status" value="${component.status}"/>
+		<property name="component.version" value="${release.number}.${build.number}${component.status}"/>
+		<property name="component.release.name" value="${component.name}_v${component.version}.zip"/>
+		<property name="build.dir" value="/Dev/WCC/11gDev/11.1.1.x/sources/build"/>
 	</target>
 
-	<target name="compile" depends="setup">
+	<target name="readme" depends="setup">
+<!--	README Markdown to HTML5 conversion
+		<exec executable="pandoc" os="Mac OS X">
+			<arg value="README.md"/>
+			<arg value="-f"/>
+			<arg value="markdown_github"/>
+			<arg value="-t"/>
+			<arg value="html5"/>
+			<arg value="-s"/>
+			<arg value="-o"/>
+			<arg value="readme.html"/>
+		</exec>
+-->		
+		<copy
+			file="README.md" 
+			tofile="readme.txt"
+			overwrite="true"
+			/>
+
+		<echo>${component.desc} README creation OK</echo>
+	</target>	
+
+	<target name="compile" depends="readme">
 <!--
-		<javac debug="true" srcdir="java/CenteraFileStoreProvider/" destdir="classes/"  />
+		<javac debug="true" srcdir="java/${component.name}/" destdir="classes/"  />
 -->
-		<echo>Centera FileStore Provider Compilation OK</echo>
+		<echo>${component.desc} Compilation OK</echo>
 	</target>
-
+	
 	<target name="classes_bundle" depends="compile">
 
-		<jar destfile="classes-CenteraFileStoreProvider.jar" 
+		<jar destfile="classes-${component.name}.jar" 
 			filesonly="true"
-			basedir="/Dev/WCC/11gDev/11.1.1.x/sources/build"
+			basedir="${build.dir}"
 			includes="oracle/**">
 		    <include name="build"/>
 		    <manifest>
-		      <attribute name="Built-By" value="Adao.Junior@oracle.com"/>
+		      <attribute name="Built-By" value="Adao.Junior"/>
 		      <!-- Information about the program itself -->
-		      <attribute name="Implementation-Vendor" value="Oracle A-Team."/>
-		      <attribute name="Implementation-Title" value="Centera FileStore Provider"/>
-		      <attribute name="Implementation-Version" value="1.0.${cu-buildnumber}"/>
+		      <attribute name="Implementation-Vendor" value="Oracle A-Team"/>
+			  <attribute name="Implementation-Vendor-Id" value="oracle.ateam"/>
+		      <attribute name="Implementation-Title" value="${component.desc}"/>
+		      <attribute name="Implementation-Version" value="${component.version}"/>
+			  <attribute name="Implementation-URL" value="https://github.com/junior/${component.name}/releases/download/v${component.version}/${component.release.name}"/>
 		    </manifest>
 		</jar>
 
-		<echo>Centera FileStore Provider Jarred OK</echo>
+		<echo>${component.desc} Jarred OK</echo>
 	</target>
-
+	
 	<target name="component_bundle" depends="classes_bundle">
-		<zip destfile="CenteraFileStoreProvider.zip" filesonly="true">
+		<zip destfile="${component.name}.zip" filesonly="true">
 			<zipfileset dir="." includes="manifest.hda" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="CenteraFileStoreProvider.hda" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="centerafilestoreprovider_environment.cfg" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="readme.html" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="resources/**" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="lang/**" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="pea/**" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="lib/**" />
-			<zipfileset dir="." prefix="component/CenteraFileStoreProvider/" includes="classes-CenteraFileStoreProvider.jar" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="${component.name}.hda" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="centerafilestoreprovider_environment.cfg" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="readme.html" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="resources/**" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="lang/**" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="pea/**" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="lib/**" />
+			<zipfileset dir="." prefix="component/${component.name}/" includes="classes-${component.name}.jar" />
 		</zip>
-		<echo>Centera FileStore Provider Component Install Zipped OK</echo>
+		<echo>${component.desc} Install Zipped OK</echo>
 	</target>
 
 	<!-- Changed to just rename and add the build number on the end-->
 	<target name="package-component-bundle" depends="component_bundle">
 		<move
-			file="CenteraFileStoreProvider.zip" 
-			tofile="builds/CenteraFileStoreProvider_b${cu-buildnumber}.zip"
+			file="${component.name}.zip" 
+			tofile="builds/${component.release.name}"
 			/>
 
 	</target>
@@ -62,11 +94,16 @@
 <!--
 		<delete dir="classes/" />
 -->
-		<echo>Centera FileStore Providerv Build Cleanup Complete</echo>
+		<echo>${component.desc} Build Cleanup Complete</echo>
 	</target>
 
 	<target name="wrapup" depends="cleanup">
-		<echo>Centera FileStore Provider Build Complete</echo>
+		<echo>${component.desc} Build Complete</echo>
 	</target>
 
 </project>
+
+<!--		
+		Component Creator using ANT version 101
+		By Adao.Junior
+-->
